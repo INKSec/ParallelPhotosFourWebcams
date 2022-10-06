@@ -8,11 +8,13 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <time.h>
+#include <windows.h>
 
 using namespace std;
 using namespace cv;
 
-long counter = 60000; // counter to name pictures
+long counterR = 60000, counterL = 60000; // counter to name pictures
+
 
 int main()
 {
@@ -29,7 +31,7 @@ int main()
     //namedWindow("Camera 3");
 
     VideoCapture cap(0); // opens camera at port 0
-    VideoCapture cap1(1);
+    VideoCapture cap1(3);
     //VideoCapture cap2(2);
 
 
@@ -54,10 +56,11 @@ int main()
         
         // Saves image every n seconds
         if (time(0) - start == n) {
-            imwrite("/Users/micha/Desktop/pictures/" + to_string(counter) + ".png", myImage);// Saves an image
-            counter++;
-            imwrite("/Users/micha/Desktop/pictures/" + to_string(counter) + ".png", myImage1);
-            counter++;
+            Beep(1500, 100);
+            imwrite("/Users/micha/Desktop/picturesR/" + to_string(counterL) + "R.png", myImage);// Saves an image
+            counterR++;
+            imwrite("/Users/micha/Desktop/picturesL/" + to_string(counterR) + "L.png", myImage1);
+            counterL++;
             //imwrite("/Users/micha/Desktop/pictures/" + to_string(counter) + ".png", myImage2);
             start = start + n;
             //counter++;
