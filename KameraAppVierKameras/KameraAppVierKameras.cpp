@@ -45,7 +45,7 @@ int main()
         }
         
         char c = (char)waitKey(25); //Allowing 25 milliseconds frame processing time and initiating break condition
-        if (c == 27) { break; } // breaks loop if enter is hit
+        if (c == 27) { break; } // breaks loop with esc
         
         
     } 
